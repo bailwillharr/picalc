@@ -49,6 +49,11 @@ int main(int argc, char **argv) {
     pullUpDnControl(IO_COL0, PUD_UP); // Break button
 
     checkRow(currentRow, IO_ROW0);
+    printf("%d %d %d %d\n",
+    currentRow[0],
+    currentRow[1],
+    currentRow[2],
+    currentRow[3]);
 
     return 0;
 }
