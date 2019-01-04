@@ -1,3 +1,8 @@
+/* TODO
+Fix checkKeypad() and use it at the end of main().
+Assign the result to currentKeypad[][].
+*/
+
 #include <stdio.h>
 #include <stdint.h>
 
@@ -50,14 +55,6 @@ int main(int argc, char **argv) {
     pullUpDnControl(IO_COL3, PUD_DOWN); // Column 3
     pullUpDnControl(IO_BRK, PUD_UP); // Break button
 
-    checkKeypad(currentKeypad);
-    for (int x = 0; x < 4; x++) {
-        for (int y = 0; y < 4; y++) {
-            printf("%d", currentKeypad[x][y]);
-        }
-        printf("\n");
-    }
-
     return 0;
 }
 
@@ -87,10 +84,4 @@ void checkKeypad(int keypad[4][4]) {
     }
 
     keypad = keypadOutput;
-    for (int x = 0; x < 4; x++) {
-        for (int y = 0; y < 4; y++) {
-            printf("%d", keypadOutput[x][y]);
-        }
-        printf("\n");
-    }
 }
