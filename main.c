@@ -25,6 +25,8 @@ int main(int argc, char **argv) {
         {'*', '0', '#', 'D'}
     };
 
+    int currentRow[4];
+
     // Init GPIO
     wiringPiSetupGpio();
 
@@ -46,6 +48,8 @@ int main(int argc, char **argv) {
     pullUpDnControl(IO_COL3, PUD_DOWN); // Column 3
     pullUpDnControl(IO_COL0, PUD_UP); // Break button
 
+    checkRow(currentRow, IO_ROW0);
+
     return 0;
 }
 
@@ -60,5 +64,5 @@ void checkRow(int rowOutput[4], int row) {
     digitalWrite(row, HIGH);
 
     // Return an array containing the input states of the row's button
-    rowOutput = {0, 0, 0, 0}
+    rowOutput = {0, 0, 0, 0};
 }
