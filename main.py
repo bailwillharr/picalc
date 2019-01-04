@@ -15,7 +15,7 @@ GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP) # break button
 keys = [['1', '2', '3', 'A'],
         ['4', '5', '6', 'B'],
         ['7', '8', '9', 'C'],
-        ['*', '0', '#', 'Gae']]
+        ['*', '0', '#', 'D']]
 
 def checkRow(rowPin):
     GPIO.output(18, False)
