@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
     pullUpDnControl(IO_COL1, PUD_DOWN); // Column 1
     pullUpDnControl(IO_COL2, PUD_DOWN); // Column 2
     pullUpDnControl(IO_COL3, PUD_DOWN); // Column 3
-    pullUpDnControl(IO_COL0, PUD_UP); // Break button
+    pullUpDnControl(IO_BRK, PUD_UP); // Break button
 
     checkRow(currentRow, IO_ROW0);
     printf("%d %d %d %d\n",
