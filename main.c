@@ -14,7 +14,7 @@
 #define IO_BRK 26
 
 void checkRow(int[4], int);
-void checkRow(int[4][4]);
+void checkKeypad(int[4][4]);
 
 int main(int argc, char **argv) {
 
@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
     pullUpDnControl(IO_COL3, PUD_DOWN); // Column 3
     pullUpDnControl(IO_BRK, PUD_UP); // Break button
 
-    checkKeyPad(currentKeypad);
+    checkKeypad(currentKeypad);
     for (x = 0; x < 4; x++) {
         for (y = 0; y < 4; y++) {
             printf("%d", currentKeypad[x][y]);
@@ -78,7 +78,7 @@ void checkRow(int rowOutput[4], int row) {
     rowOutput[3] = digitalRead(IO_COL3);
 }
 
-void checkKeyPad(int keypad[4][4]) {
+void checkKeypad(int keypad[4][4]) {
     int currentRow[4];
     int keypadOutput[4][4];
 
