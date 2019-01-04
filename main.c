@@ -51,8 +51,8 @@ int main(int argc, char **argv) {
     pullUpDnControl(IO_BRK, PUD_UP); // Break button
 
     checkKeypad(currentKeypad);
-    for (x = 0; x < 4; x++) {
-        for (y = 0; y < 4; y++) {
+    for (int x = 0; x < 4; x++) {
+        for (int y = 0; y < 4; y++) {
             printf("%d", currentKeypad[x][y]);
         }
         printf("\n")
@@ -82,7 +82,7 @@ void checkKeypad(int keypad[4][4]) {
     int currentRow[4];
     int keypadOutput[4][4];
 
-    for (x = 0; x < 4; x++){
+    for (int x = 0; x < 4; x++){
         checkRow(keypadOutput[x], x);
     }
     keypad = keypadOutput;
