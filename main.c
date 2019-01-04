@@ -14,10 +14,11 @@
 #define IO_BRK 26
 
 void checkRow(int[4], int);
+void checkRow(int[4][4]);
 
 int main(int argc, char **argv) {
 
-    // Keypad Matrix
+    // Keypad layout matrix
     const char keys[4][4] = {
         {'1', '2', '3', 'A'},
         {'4', '5', '6', 'B'},
@@ -25,7 +26,8 @@ int main(int argc, char **argv) {
         {'*', '0', '#', 'D'}
     };
 
-    int currentRow[4];
+    // Keypad state matrix
+    int currentKeypad[4][4];
 
     // Init GPIO
     wiringPiSetupGpio();
@@ -48,12 +50,13 @@ int main(int argc, char **argv) {
     pullUpDnControl(IO_COL3, PUD_DOWN); // Column 3
     pullUpDnControl(IO_BRK, PUD_UP); // Break button
 
-    checkRow(currentRow, IO_ROW0);
-    printf("%d %d %d %d\n",
-    currentRow[0],
-    currentRow[1],
-    currentRow[2],
-    currentRow[3]);
+    checkKeyPad(currentKeypad);
+    for (x = 0; x < 4; x++) {
+        for (y = 0; y < 4; y++) {
+            printf("%d", currentKeypad[x][y]);
+        }
+        printf("\n")
+    }
 
     return 0;
 }
@@ -73,4 +76,14 @@ void checkRow(int rowOutput[4], int row) {
     rowOutput[1] = digitalRead(IO_COL1);
     rowOutput[2] = digitalRead(IO_COL2);
     rowOutput[3] = digitalRead(IO_COL3);
+}
+
+void checkKeyPad(int keypad[4][4]) {
+    int currentRow[4];
+    int keypadOutput[4][4];
+
+    for (x = 0; x < 4; x++){
+        checkRow(keypadOutput[x], x);
+    }
+    keypad = keypadOutput;
 }
