@@ -28,6 +28,10 @@ def checkRow(rowPin):
 activeDebounce = False
 #debounceKey = [0, 0]
 
+# Main Code
+
+print("This is a testing release.")
+
 while True:
     pressedKeys = [checkRow(18), checkRow(23), checkRow(24), checkRow(25)]
     if not GPIO.input(26):
