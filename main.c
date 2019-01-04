@@ -69,8 +69,8 @@ void checkRow(int rowOutput[4], int row) {
     digitalWrite(row, HIGH);
 
     // Return an array containing the input states of the row's button
-    rowOutput[0] = 0;
-    rowOutput[1] = 0;
-    rowOutput[2] = 0;
-    rowOutput[3] = 0;
+    rowOutput[0] = digitalRead(IO_COL0);
+    rowOutput[1] = digitalRead(IO_COL1);
+    rowOutput[2] = digitalRead(IO_COL2);
+    rowOutput[3] = digitalRead(IO_COL3);
 }
