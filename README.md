@@ -17,7 +17,6 @@ A pretty comprehensive list of everything that's required.
 * 1 x small tactile switch
 * 1 x 16x2 monochrome LCD
 * 8 x male to male jumper wires
-*
 
 ### Software
 * rsync
